@@ -13,7 +13,8 @@ import * as logger from "firebase-functions/logger";
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
 
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+export const echo = onRequest((request, response) => {
+  logger.info("Echo request body", {structuredData: true});
+  const body = request.body;
+  response.status(200).send(body);
+});
